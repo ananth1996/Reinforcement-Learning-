@@ -104,6 +104,7 @@ def evaluate(nn,inputs,output):
   # Copy inputs to 0..n
   for i in range(0,len(inputs)):
     a[i] = inputs[i]
+  #Bias term 
   a[-1] = 1
   # Propagate the input values forward
   for level in range(1,nn.lastLevel+1):
