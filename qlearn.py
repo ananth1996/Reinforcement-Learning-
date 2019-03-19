@@ -62,8 +62,13 @@ def execute(mdp,s,a):
   # Group the state and reward together again
   state_reward = list(zip(*[successors,reward]))
   # Choose a state and reward according to the probabilities
-  choice = random.choices(population=state_reward,weights=probs,k=1)[0]
-  return choice
+  rand = random.random()
+  for i,p in enumerate(probs):
+    if rand < p:
+      return state_reward[i]
+    rand -= p
+  # choice = random.choices(population=state_reward,weights=probs,k=1)[0]
+  # return choice
 
 # OBLIGATORY FUNCTION:
 # Qlearning returns the Q-value function after performing the given
